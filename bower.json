@@ -1,0 +1,21 @@
+{
+  "name": "huserver",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "UKkkkkkkkkk <825846102@qq.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
