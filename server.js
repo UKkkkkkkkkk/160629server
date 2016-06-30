@@ -20,10 +20,7 @@ http.createServer(function (req,res) {
             case 'GET':
                 var id=query.id;
                 if(id){
-
                 }
-
-
                 fs.readFile("./users.json","utf8", function (err,data) {
 
                 if(err){
