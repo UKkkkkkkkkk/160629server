@@ -71,13 +71,15 @@ http.createServer(function (req,res) {
                     user.filter(function (user) {
                         return user.id != id;
                     });
-                    fs.writeFile("./users.json",JSON.stringify(users), function (err) {
+
+                    fs.writeFile("./users.json",JSON.stringify(users),function(err) {
                         if(err){
                             res.end(JSON.stringify({
                                 code:'error',
                                 data:err
                             }))
                         }else{
+                            res.writeHead(200,{"Content-Type":"application/json;charset=utf-8"})
                             res.end(JSON.stringify({
                                 code:'success',
                                 data:{}
