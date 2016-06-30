@@ -79,7 +79,6 @@ http.createServer(function (req,res) {
                                 data:err
                             }))
                         }else{
-                            res.writeHead(200,{"Content-Type":"application/json;charset=utf-8"})
                             res.end(JSON.stringify({
                                 code:'success',
                                 data:{}
