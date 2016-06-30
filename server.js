@@ -67,11 +67,10 @@ http.createServer(function (req,res) {
             case 'DELETE':
                 var id=query.id;
                 fs.readFile("./users.json",'utf8', function (err,data) {
-                    var user=JSON.parse(data);
-                    user.filter(function (user) {
+                    var users=JSON.parse(data);
+                    users.filter(function (user) {
                         return user.id != id;
                     });
-
                     fs.writeFile("./users.json",JSON.stringify(users),function(err) {
                         if(err){
                             res.end(JSON.stringify({

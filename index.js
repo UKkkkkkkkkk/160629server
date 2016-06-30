@@ -54,7 +54,7 @@ function save(){
 
 
 function del(id){
-    console.log(1);
+  /*  console.log(1);
   $.ajax({
       url:`/users?id=${id}`,
       method:"DELETE",
@@ -69,7 +69,16 @@ function del(id){
       }else{
           $(`#tr_${id}`).remove();
       }
-  })
+  })*/
+    $.ajax({
+        url:`/users?id=${id}`,
+        method:'DELETE'
+    }).success(function(result){
+        $(`#tr_${id}`).remove();
+        $('#alert').html('操作成功');
+    }).error(function(result){
+        $('#alert').html('操作失败');
+    });
 }
 
 
