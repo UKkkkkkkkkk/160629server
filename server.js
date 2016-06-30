@@ -17,7 +17,14 @@ http.createServer(function (req,res) {
 
     if(pathname=="/users"){
         switch (method){
-            case 'GET':fs.readFile("./users.json","utf8", function (err,data) {
+            case 'GET':
+                var id=query.id;
+                if(id){
+
+                }
+
+
+                fs.readFile("./users.json","utf8", function (err,data) {
 
                 if(err){
                     res.statusCode=500;
@@ -57,7 +64,28 @@ http.createServer(function (req,res) {
 
                 });
                 break;
-
+            case 'DELETE':
+                var id=query.id;
+                fs.readFile("./users.json",'utf8', function (err,data) {
+                    var user=JSON.parse(data);
+                    user.filter(function (user) {
+                        return user.id != id;
+                    });
+                    fs.writeFile("./users.json",JSON.stringify(users), function (err) {
+                        if(err){
+                            res.end(JSON.stringify({
+                                code:'error',
+                                data:err
+                            }))
+                        }else{
+                            res.end(JSON.stringify({
+                                code:'success',
+                                data:{}
+                            }));
+                        }
+                    })
+                })
+                   break;
         }
 
     }else{
